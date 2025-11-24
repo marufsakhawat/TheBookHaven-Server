@@ -1,2 +1,2 @@
-# TheBookHaven-Client
+# TheBookHaven-server
 
