@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const admin = require("firebase-admin");
 const serviceAccount = require("./serviceKey.json");
-require("dotenv").config();
+require('dotenv').config();
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const app = express();
 const port = process.env.PORT || 3000;
@@ -42,7 +42,7 @@ const verifyFBToken = async (req, res, next) => {
 };
 
 // -------------------- MongoDB Connection --------------------
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.k11w7kv.mongodb.net/?appName=Cluster0`;
+const uri = `mongodb+srv://${process.env.db_user}:${process.env.db_pass}@cluster0.k11w7kv.mongodb.net/?appName=Cluster0`;
 
 const client = new MongoClient(uri, {
   serverApi: {
