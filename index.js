@@ -23,6 +23,8 @@ app.use(express.json());
 const verifyFBToken = async (req, res, next) => {
   const authorization = req.headers.authorization;
 
+  
+
   if (!authorization) {
     return res.status(401).send({ message: "Unauthorized access" });
   }
@@ -62,7 +64,7 @@ app.get("/", (req, res) => {
 // -------------------- Main Function --------------------
 const run = async () => {
   try {
-    await client.connect();
+    // await client.connect();
 
     const db = client.db("books-db");
     const bookCollection = db.collection("books");
@@ -158,7 +160,7 @@ const run = async () => {
     });
 
     // MongoDB Ping Test
-    await client.db("admin").command({ ping: 1 });
+    // await client.db("admin").command({ ping: 1 });
     console.log("Connected to MongoDB!");
   } finally {}
 };
