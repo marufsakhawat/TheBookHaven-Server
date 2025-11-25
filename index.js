@@ -42,15 +42,17 @@ const verifyFBToken = async (req, res, next) => {
 };
 
 // -------------------- MongoDB Connection --------------------
-const uri = `mongodb+srv://${process.env.db_user}:${process.env.db_pass}@cluster0.k11w7kv.mongodb.net/?appName=Cluster0`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.9zbfeju.mongodb.net/?appName=Cluster0`;
 
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
     strict: true,
     deprecationErrors: true,
-  },
+  }
 });
+
 
 // Root Route
 app.get("/", (req, res) => {
@@ -62,7 +64,7 @@ const run = async () => {
   try {
     await client.connect();
 
-    const db = client.db("book_db");
+    const db = client.db("books-db");
     const bookCollection = db.collection("books");
     const commentCollection = db.collection("comments");
 
