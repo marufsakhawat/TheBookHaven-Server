@@ -66,14 +66,14 @@ const run = async () => {
   try {
     // await client.connect();
 
-    const db = client.db("books-db");
+    const db = client.db("book_db");
     const bookCollection = db.collection("books");
     const commentCollection = db.collection("comments");
 
     // ------------------------------------------------------
     // GET All Books (Filtered by email if provided)
     // ------------------------------------------------------
-    app.get("/books", verifyFBToken, async (req, res) => {
+    app.get("/books", async (req, res) => {
       const email = req.query.email;
       const query = email ? { userEmail: email } : {};
       const result = await bookCollection
